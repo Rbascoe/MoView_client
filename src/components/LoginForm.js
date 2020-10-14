@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Route, withRouter } from 'react-router-dom';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -83,31 +84,35 @@ const useStyles = makeStyles((theme) => ({
 
 export const LoginForm = (props) => {
 
-    const [state, setState] = useState(
-        {
-          username: '',
-          password: ''
-        }
-      )
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+      
      
   const classes = useStyles();
 
   const handleSubmit = () => {
     props.history.push("/profile")
-  }
+  };
 
-  const handleChange = (e) => {
-      const {name, value} = e.target
-    setState(prevState => ({
-        ...prevState, [name] : value
-    }))
-  }
+  const handleChangeUsername = (e) => {
+    const username = e.target.value;
+    setUsername(username);
+  };
+
+  const handleChangePassword = (e) => {
+    const password = e.target.value;
+    setPassword(password);
+};
+
 
   const login = (e) => {
-      debugger
+    //   debugger
     e.preventDefault()
 
-    // const values = {username, password};
+    const values = {
+        username: username, 
+        password: password
+    };
 
     fetch("http://localhost:3000/api/v1/login", {
         method: "POST",
@@ -115,9 +120,8 @@ export const LoginForm = (props) => {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-        
-            username: null,
-            password: null
+            username: values.username,
+            password: values.password
         })
       })
     .then(res => res.json())
@@ -137,10 +141,9 @@ export const LoginForm = (props) => {
           Log in
         </Typography>
         <form onSubmit={(e) => 
-            login(e),
-            handleSubmit()}
+            login(e)}
             className={classes.form} noValidate>
-          <TextField onChange={handleChange('username')}
+          <TextField onChange={handleChangeUsername}
             variant="outlined"
             margin="normal"
             required
@@ -148,15 +151,17 @@ export const LoginForm = (props) => {
             id="username"
             label="Username"
             name="username"
+            value={username}
             autoComplete="username"
             autoFocus
           />
-          <TextField onChange={handleChange('password')}
+          <TextField onChange={handleChangePassword}
             variant="outlined"
             margin="normal"
             required
             fullWidth
             name="password"
+            value={password}
             label="Password"
             type="password"
             id="password"
@@ -168,6 +173,7 @@ export const LoginForm = (props) => {
             variant="contained"
             color="primary"
             className={classes.submit}
+            onClick={handleSubmit}
           >
             Log In
           </Button>
@@ -186,4 +192,4 @@ export const LoginForm = (props) => {
     </Container>
   );
 }
-export default LoginForm;
+export default withRouter(LoginForm);

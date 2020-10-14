@@ -30,6 +30,7 @@ export const NavBar = (props) => {
           <Typography variant="h6" className={classes.title}>
             Welcome
           </Typography>
+          <Button onClick={(e) => props.history.push("/profile")} color="inherit">Profile</Button>
           <Button onClick={(e) => props.history.push("/signup")} color="inherit">Signup</Button>
           <Button onClick={(e) => props.history.push("/login")}  color="inherit">Login</Button>
         </Toolbar>
