@@ -25,22 +25,22 @@ function App() {
   },[])
 
   return (
-    <div className="App">
-      <BrowserRouter >
+      <div className="App">
+        <BrowserRouter>
+    
         <Header className="header"/>
         <NavBar
         />
-        {/* <Switch> */}
+        <Switch>
           <Route path="/" render={(routerProps) => <MoviesContainer {...routerProps} movies={moviesArray}/>}/>
-        
+        </Switch>
           <Route path="/signup" render={(routerProps) => <SignupForm {...routerProps} />}/>
           <Route path="/login" render={(routerProps) => <LoginForm {...routerProps} />}/>
           <Route path="/profile" render={(routerProps) => <UserProfile {...routerProps} />}/>
-          {/* </Switch> */}
+       
           <Route path="/moviepage" render={(routerProps) => <MoviePage {...routerProps} movies={moviesArray}/>}/>
-        
-      </BrowserRouter>
-    </div>
+        </BrowserRouter>
+      </div>
   );
 }
 
