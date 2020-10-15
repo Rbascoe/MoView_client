@@ -50,11 +50,16 @@ const useStyles = makeStyles((theme) => ({
 
 export const LoginForm = (props) => {
 
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-      
-     
+
   const classes = useStyles();
+
+  const [current_user, setCurrentUser] = useState({});
+  const [loggedIn, setLoggedIn] = useState(false)
+
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+      
+    
 
 //   const handleSubmit = () => {
 //     props.history.push("/profile")
@@ -91,8 +96,8 @@ export const LoginForm = (props) => {
         })
       })
     .then(res => res.json())
-    .then(data => {
-      localStorage.setItem("token", data.jwt);
+    .then(userInfo => {
+      localStorage.setItem("token", userInfo.jwt);
       props.history.push("/profile")
     })
   }
