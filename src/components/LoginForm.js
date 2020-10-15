@@ -77,7 +77,6 @@ export const LoginForm = (props) => {
 
 
   const login = (e) => {
-    //   debugger
     e.preventDefault()
 
     const values = {
@@ -97,8 +96,21 @@ export const LoginForm = (props) => {
       })
     .then(res => res.json())
     .then(userInfo => {
-      localStorage.setItem("token", userInfo.jwt);
-      props.history.push("/profile")
+      localStorage.token = userInfo.token
+            localStorage.id = userInfo.id 
+            localStorage.username = userInfo.user.username
+            localStorage.age = userInfo.user.age
+            localStorage.bio = userInfo.user.bio
+            localStorage.loggedIn = true  
+            setCurrentUser({
+              currentUser: userInfo.user
+            }) 
+            setLoggedIn({
+              loggedIn: true
+            }) 
+            
+            console.log(userInfo)
+            props.history.push("/profile")
     })
   }
 

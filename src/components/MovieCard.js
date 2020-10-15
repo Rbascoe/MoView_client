@@ -10,7 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import { Route, withRouter } from 'react-router-dom';
 
 export const MovieCard = (props) => {
-    console.log(props)
+    // console.log(props)
 
     const redirectToMoviePage = () => {
         props.history.push(`/moviepage`)
@@ -24,8 +24,8 @@ export const MovieCard = (props) => {
                     <Grid item xs={12} sm={6} md={4}>
                         <Card >
                         <CardMedia/>
-                            <img src= {base_url + props.poster} />
-                        
+                            <img src={`http://image.tmdb.org/t/p/w400/${props.poster}`} />
+                    
                         <CardContent >
                             <Typography gutterBottom variant="h5" component="h2">
                              {props.title}

@@ -32,7 +32,7 @@ function App() {
         <NavBar
         />
         <Switch>
-          <Route path="/" render={(routerProps) => <MoviesContainer {...routerProps} movies={moviesArray}/>}/>
+          <Route exact path="/home" render={(routerProps) => <MoviesContainer {...routerProps} movies={moviesArray}/>}/>
         </Switch>
           <Route path="/signup" render={(routerProps) => <SignupForm {...routerProps} />}/>
           <Route path="/login" render={(routerProps) => <LoginForm {...routerProps} />}/>
