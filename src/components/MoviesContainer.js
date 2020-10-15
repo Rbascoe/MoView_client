@@ -1,5 +1,6 @@
 import React, { useState, Component } from 'react'
 import MovieCard from './MovieCard';
+import MoviePage from './MoviePage';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import Card from '@material-ui/core/Card';
@@ -20,16 +21,16 @@ function Copyright() {
 
 export const MoviesContainer = (props) => {
 
-
-        const movies = props.movies.moviesArray.map(movie => movie)
+  const movies = props.movies.movies.map(movie => <MovieCard title={movie.title} poster={movie.poster} plot={movie.plot}/>)
+        // {this.props.movies.map( movie =>
+        // <MoviePage title={movie.title} poster={movie.poster} plot={movie.plot}/>)};
         return (
             <div>
-                {movies.map(movie => 
-               <MovieCard title={movie.title} poster={movie.poster} plot={movie.plot}/>)}
+                {movies}
                <Copyright />
             </div>
-        )    
+        )   
+    
 }
 
 export default MoviesContainer;
-

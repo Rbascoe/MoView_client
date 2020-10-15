@@ -7,9 +7,14 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
+import { Route, withRouter } from 'react-router-dom';
 
 export const MovieCard = (props) => {
     console.log(props)
+
+    const redirectToMoviePage = () => {
+        props.history.push(`/moviepage`)
+    }
     let base_url = 'http://image.tmdb.org/t/p/'
     return (
         <div>
@@ -30,7 +35,7 @@ export const MovieCard = (props) => {
                             </Typography>
                         </CardContent>
                         <CardActions>
-                            <Button size="small" color="primary">
+                            <Button onClick={redirectToMoviePage} size="small" color="primary">
                             View
                             </Button>
                         </CardActions>
@@ -42,4 +47,4 @@ export const MovieCard = (props) => {
     )
 }
 
-export default MovieCard;
+export default withRouter(MovieCard);

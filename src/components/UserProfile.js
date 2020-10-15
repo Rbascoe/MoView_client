@@ -4,7 +4,7 @@ import { Route, withRouter } from 'react-router-dom';
 const UserProfile = () => {
     return (
         <div>
-            User Info
+           <h2>User Info</h2> 
         </div>
     )
 }

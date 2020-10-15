@@ -47,40 +47,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-// const handleChange = (e) => {
-//     this.useState({
-//       [e.target.name]: e.target.value
-//     })
-//   }
-
-// let handleSubmit = () => {
-//     this.props.history.push("/profile")
-//   }
-
-// const login = (e) => {
-//     e.preventDefault()
-
-//     const {values} = this.props;
-
-//     fetch("http://localhost:3000/api/v1/login", {
-//         method: "POST",
-//         headers: {
-//             "Content-Type": "application/json"
-//         },
-//         body: JSON.stringify({
-        
-//             username: values.username,
-//             password: values.password,
-            
-//         })
-//       })
-//     .then(res => res.json())
-//     .then(userInfo => {
-//       localStorage.token = userInfo.token
-//     })
-//   }
-
-
 
 export const LoginForm = (props) => {
 
@@ -90,9 +56,9 @@ export const LoginForm = (props) => {
      
   const classes = useStyles();
 
-  const handleSubmit = () => {
-    props.history.push("/profile")
-  };
+//   const handleSubmit = () => {
+//     props.history.push("/profile")
+//   };
 
   const handleChangeUsername = (e) => {
     const username = e.target.value;
@@ -125,8 +91,9 @@ export const LoginForm = (props) => {
         })
       })
     .then(res => res.json())
-    .then(userInfo => {
-      localStorage.token = userInfo.token
+    .then(data => {
+      localStorage.setItem("token", data.jwt);
+      props.history.push("/profile")
     })
   }
 
@@ -173,13 +140,12 @@ export const LoginForm = (props) => {
             variant="contained"
             color="primary"
             className={classes.submit}
-            onClick={handleSubmit}
           >
             Log In
           </Button>
           <Grid container>
             <Grid item>
-              <Link to="/signup" href="#" variant="body2">
+              <Link to="/signup" href="/signup" variant="body2">
                 {"Don't have an account? Sign Up"}
               </Link>
             </Grid>

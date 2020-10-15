@@ -116,7 +116,7 @@ const handleChangeBio = (e) => {
         })
       })
     .then(res => res.json())
-    .then(console.log)
+    .then(data => localStorage.setItem("token", data.jwt))
   }
 
   return (
@@ -130,7 +130,7 @@ const handleChangeBio = (e) => {
           Sign up
         </Typography>
         <form onSubmit={(e) => 
-            signup(e)}
+            signup(e) }
             className={classes.form} noValidate>
             <TextField onChange={handleChangeName}
                 variant="outlined"
@@ -198,13 +198,12 @@ const handleChangeBio = (e) => {
                 variant="contained"
                 color="primary"
                 className={classes.submit}
-                onClick={handleSubmit}
             >
                 Sign Up
             </Button>
             <Grid container>
                 <Grid item>
-                <Link to="/login" href="#" variant="body2">
+                <Link to="/login" href="/login" variant="body2">
                     {"Already an account? Log In"}
                 </Link>
                 </Grid>
