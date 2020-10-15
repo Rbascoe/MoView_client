@@ -18,39 +18,18 @@ function Copyright() {
   }
   
 
-export default class MoviesContainer extends Component {
+export const MoviesContainer = (props) => {
 
-    // state = {
-    //     title: null,
-    //     poster: null
-        
-    // }
-  
 
-    // const [movie, setMovie] = useState({
-    //     movie: {}
-    // }
-    // )
-    // setMovies = () => {
-    //  this.movies.moviesArray.map(movie => this.setState(
-    //     {
-    //       title: movie.title,
-    //       poster: movie.poster
-    //     }
-    //   ))
-    // }
-
-   
-
-    render = () => {
-        const movies = this.props.movies.moviesArray.map(movie => movie)
+        const movies = props.movies.moviesArray.map(movie => movie)
         return (
             <div>
                 {movies.map(movie => 
                <MovieCard title={movie.title} poster={movie.poster} plot={movie.plot}/>)}
                <Copyright />
             </div>
-        )  
-    }  
-    
+        )    
 }
+
+export default MoviesContainer;
+
