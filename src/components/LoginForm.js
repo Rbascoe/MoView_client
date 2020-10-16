@@ -97,7 +97,7 @@ export const LoginForm = (props) => {
     .then(res => res.json())
     .then(userInfo => {
       localStorage.token = userInfo.token
-            localStorage.id = userInfo.id 
+            localStorage.id = userInfo.user.id 
             localStorage.username = userInfo.user.username
             localStorage.age = userInfo.user.age
             localStorage.bio = userInfo.user.bio

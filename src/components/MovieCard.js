@@ -8,6 +8,8 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { Route, withRouter } from 'react-router-dom';
+import { MoviePage } from './MoviePage';
+import FormRow from '@material-ui/core';
 
 export const MovieCard = (props) => {
     // console.log(props)
@@ -15,16 +17,16 @@ export const MovieCard = (props) => {
     const redirectToMoviePage = () => {
         props.history.push(`/moviepage`)
     }
-    let base_url = 'http://image.tmdb.org/t/p/'
     return (
         <div>
             <Container  maxWidth="md">
-            {/* End hero unit */}
+        
                 <Grid container spacing={4}>
-                    <Grid item xs={12} sm={6} md={4}>
+                     <Grid item xs={20} sm={6} md={4}> 
+                        
                         <Card >
                         <CardMedia/>
-                            <img src={`http://image.tmdb.org/t/p/w400/${props.poster}`} />
+                            <img src={`http://image.tmdb.org/t/p/w200/${props.poster}`} />
                     
                         <CardContent >
                             <Typography gutterBottom variant="h5" component="h2">
@@ -35,14 +37,15 @@ export const MovieCard = (props) => {
                             </Typography>
                         </CardContent>
                         <CardActions>
-                            <Button onClick={redirectToMoviePage} size="small" color="primary">
+                            <Button onClick={redirectToMoviePage} size="small" color="primary" >
                             View
                             </Button>
                         </CardActions>
                         </Card>
+                        
                     </Grid>
                 </Grid>
-            </Container>     
+             </Container>    
         </div>
     )
 }

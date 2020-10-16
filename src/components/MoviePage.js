@@ -4,13 +4,12 @@ import ReviewForm from './ReviewForm'
 import ReviewsContainer from './ReviewsContainer'
 
 export const MoviePage = (props) => {
-    // const movies = props.movies.moviesArray.map(movie => movie)
-    const movie = props.movies.movies.map(movie => console.log(movie.title))
+    console.log(props)
     return (
         <div>
-            <div>
-            <h1>{movie.title}</h1>
-            </div>
+            
+            <h1>{props.title}</h1>
+            
             <div>
             <ReviewForm />
             </div>

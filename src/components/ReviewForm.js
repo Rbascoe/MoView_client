@@ -49,7 +49,7 @@ const ReviewForm = () => {
 //   };
 
   const handleChangeReview = (e) => {
-      console.log(e.target)
+      console.log(e.target.value)
     const review = e.target.value;
     setReview(review);
   };
@@ -71,11 +71,14 @@ const ReviewForm = () => {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            review: values.review
+            review: values.review,
+            user_id: localStorage.id,
+            // movie_id: ,
         })
       })
     .then(res => res.json())
-    .then(data => console.log(data))
+    .then(review => {console.log(review)
+    })
   }
 
   return (

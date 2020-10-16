@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-// import './App.css';
+import './App.css';
 import { BrowserRouter, Route, Switch, withRouter } from 'react-router-dom';
 import Header from './components/Header.js'
 import NavBar from './components/NavBar.js'
@@ -31,6 +31,7 @@ function App() {
         <Header className="header"/>
         <NavBar
         />
+          <br></br><br></br><br></br>
         <Switch>
           <Route exact path="/home" render={(routerProps) => <MoviesContainer {...routerProps} movies={moviesArray}/>}/>
         </Switch>
@@ -38,7 +39,12 @@ function App() {
           <Route path="/login" render={(routerProps) => <LoginForm {...routerProps} />}/>
           <Route path="/profile" render={(routerProps) => <UserProfile {...routerProps} />}/>
        
-          <Route path="/moviepage" render={(routerProps) => <MoviePage {...routerProps} movies={moviesArray}/>}/>
+          <Route path="/movie/:id" render={(props) => {
+          
+            let id=parseInt(props.match.params.id)
+            let movieShow = moviesArray.movies.map(movie => movie)
+            let singleMovie = movieShow.find(oneMovie => oneMovie.id === id)
+             return <MoviePage  movie={singleMovie}/>}}/>
         </BrowserRouter>
       </div>
   );

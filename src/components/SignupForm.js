@@ -60,7 +60,7 @@ export const SignupForm = (props) => {
   const classes = useStyles();
 
   const handleSubmit = () => {
-    props.history.push("/profile")
+    props.history.push("/login")
   };
 
   const handleChangeName = (e) => {
@@ -116,7 +116,22 @@ const handleChangeBio = (e) => {
         })
       })
     .then(res => res.json())
-    .then(data => localStorage.setItem("token", data.jwt))
+    .then(userInfo => {
+      // console.log(userInfo)
+      if (userInfo.error)
+        alert(userInfo.error)
+      else{
+        localStorage.token = userInfo.token
+              localStorage.id = userInfo.user.id 
+              localStorage.username = userInfo.user.username
+              localStorage.age = userInfo.user.age
+              localStorage.bio = userInfo.user.bio
+        
+              
+              console.log(userInfo)
+              props.history.push("/login")
+      }
+      })
   }
 
   return (
