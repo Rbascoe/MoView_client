@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useLayoutEffect} from 'react';
+import React, { useState, useEffect, Component } from 'react';
 import './App.css';
 import { BrowserRouter, Route, Switch, withRouter } from 'react-router-dom';
 import Header from './components/Header.js'
@@ -11,35 +11,35 @@ import MoviePage from './components/MoviePage'
 import ReviewForm from './components/ReviewForm'
 import ReviewsContainer from './components/ReviewsContainer'
 import LoggedInNav from './components/LoggedInNav';
+import { render } from 'react-dom';
 
 
-function App() {
-  const [moviesArray, setMovies] = useState({
-    movies: []
-  })
-  
-  const [reviews, setReviews] = useState({
-    reviews: []
-  })
+class App extends Component {
 
-  const [loading, setLoading] = useState(true)
+  state = {
+    moviesArray: [],
+    reviews: [],
+    loading: true
+  }
 
-  useEffect(() => {
+
+
+  componentDidMount(){
     fetch("http://localhost:3000/api/v1/movies")
     .then(res => res.json())
-    .then(movies => setMovies({movies: [...movies]}),
-    setLoading(false))
-  },[])
+    .then(movies => this.setState({moviesArray: [...movies], 
+      loading: false}))
+  }
 
-  useEffect(() => {
-    fetch("http://localhost:3000/api/v1/reviews")
-    .then(res => res.json())
-    .then(reviews => setReviews({reviews: reviews}))
-  },[])
-
+  // componentDidMount(){
+  //   fetch("http://localhost:3000/api/v1/reviews")
+  //   .then(res => res.json())
+  //   .then(reviews => this.setState({reviews: reviews}))
+  // }
+render(){
   return (
       <div className="App">
-        {!loading?
+        {!this.state.loading?
         <BrowserRouter>
     
         <Header className="header"/>
@@ -47,32 +47,36 @@ function App() {
         <NavBar/>:<LoggedInNav/>}
           <br></br><br></br><br></br>
         <Switch>
-          <Route exact path="/home" render={(routerProps) => <MoviesContainer {...routerProps} movies={moviesArray}/>}/>
+          <Route exact path="/home" render={(routerProps) => <MoviesContainer {...routerProps} movies={this.state.moviesArray}/>}/>
         </Switch>
           <Route path="/signup" render={(routerProps) => <SignupForm {...routerProps} />}/>
           <Route path="/login" render={(routerProps) => <LoginForm {...routerProps} />}/>
           <Route path="/profile" render={(routerProps) => <UserProfile {...routerProps} />}/>
           
           <Route exact path="/movie/:id" render={(props) => {
+            
+            console.log(props)
             let id=parseInt(props.match.params.id)
             
-            let singleMovie = moviesArray.movies.find(oneMovie => oneMovie.id === id)
-            console.log(moviesArray)
+            // let movieShow = moviesArray.movies.map(movie => movie)
+            let singleMovie = this.state.moviesArray.find(oneMovie => oneMovie.id === id)
+            console.log(this.state.moviesArray)
             let movieReviews = []
-            let review = reviews.reviews.map(singleReview => {
+            let review = this.state.reviews.map(singleReview => {
               if (singleReview.movie_id === singleMovie.id ){
                 movieReviews.push(singleReview)
               }
             })
-            console.log(movieReviews)
+            // console.log(movieReviews)
 
              return <MoviePage  
-             movie={singleMovie} 
-            //  title={singleMovie.title} 
-            //  imdb_id={singleMovie.imdb_id}
-            //  plot={singleMovie.plot}
-            //  release_date={singleMovie.release_date}
-            //  poster={singleMovie.poster}
+            //  movie={singleMovie} 
+            id={singleMovie.id}
+             title={singleMovie.title}
+             imdb_id={singleMovie.imdb_id}
+             plot={singleMovie.plot}
+             release_date={singleMovie.release_date}
+             poster={singleMovie.poster}
              reviews={movieReviews}
              
              
@@ -80,7 +84,9 @@ function App() {
         </BrowserRouter>:
         <div>...Loading</div>}
       </div>
-  );
+  )};
+          
 }
 
 export default App;
+

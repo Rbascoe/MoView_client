@@ -23,15 +23,15 @@ export const MoviePage = (props) => {
             <Container>
                 <Grid container spacing={0} >
                 <Grid item className={classes.container}>
-                    <img src={`http://image.tmdb.org/t/p/w200/${props.movie.poster}`} />
+                    <img src={`http://image.tmdb.org/t/p/w200/${props.poster}`} />
                     <h3>Title:</h3><br></br>
-                    <b>{props.movie.title}</b>
+                    <b>{props.title}</b>
                     <h3>Plot: </h3><br></br>
-                    <b>{props.movie.plot}</b>
+                    <b>{props.plot}</b>
                     <h3>Imdb ID: </h3><br></br>
-                    <b>{props.movie.imdb_id}</b>
+                    <b>{props.imdb_id}</b>
                     <h3>Release date: </h3><br></br>
-                    <b>{props.movie.release_date}</b>
+                    <b>{props.release_date}</b>
                 </Grid>
                 <Grid item className={classes.container}> 
                     <div>
