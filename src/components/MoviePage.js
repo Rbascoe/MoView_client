@@ -6,6 +6,10 @@ import ReviewsContainer from './ReviewsContainer'
 export const MoviePage = (props) => {
     // debugger
     console.log(props.movie)
+//  const []
+    // fetch("http://localhost:3000/api/v1/reviews")
+    // .then(res => res.json())
+    // .then(reviews => this.setState({reviews: reviews}))
 
     return (
         <div>
@@ -24,7 +28,7 @@ export const MoviePage = (props) => {
             
             <div>
             {localStorage.id?
-            <ReviewForm  />: null}
+            <ReviewForm movie_id={props.id} />: null}
             </div>
             <div>
             <ReviewsContainer reviews={props.reviews}/>

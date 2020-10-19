@@ -37,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
   
 
 const ReviewForm = (props) => {
+  console.log(props)
 
     const [review, setReview] = useState("");
     
@@ -65,7 +66,7 @@ const ReviewForm = (props) => {
 
     // const movie_id = movie.data.id
 
-    fetch("http://localhost:3000/api/v1/reviews", {
+    fetch(`http://localhost:3000/api/v1/movies/${props.id}/reviews`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -73,7 +74,7 @@ const ReviewForm = (props) => {
         body: JSON.stringify({
             review: values.review,
             user_id: localStorage.id,
-            movie_id: props.movie,
+            movie_id: props.id,
         })
       })
     .then(res => res.json())

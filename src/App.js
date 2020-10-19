@@ -27,18 +27,19 @@ class App extends Component {
   componentDidMount(){
     fetch("http://localhost:3000/api/v1/movies")
     .then(res => res.json())
-    .then(movies => this.setState({moviesArray: [...movies], loading: false}))
+    .then(movies => this.setState({moviesArray: [...movies], 
+      loading: false}))
   }
 
-  componentDidMount(){
-    fetch("http://localhost:3000/api/v1/reviews")
-    .then(res => res.json())
-    .then(reviews => this.setState({reviews: reviews}))
-  }
+  // componentDidMount(){
+  //   fetch("http://localhost:3000/api/v1/reviews")
+  //   .then(res => res.json())
+  //   .then(reviews => this.setState({reviews: reviews}))
+  // }
 render(){
   return (
       <div className="App">
-        {this.state.loading?
+        {!this.state.loading?
         <BrowserRouter>
     
         <Header className="header"/>
@@ -66,15 +67,16 @@ render(){
                 movieReviews.push(singleReview)
               }
             })
-            console.log(movieReviews)
+            // console.log(movieReviews)
 
              return <MoviePage  
             //  movie={singleMovie} 
-             title={{title: "singleMovie.title"}}
-             imdb_id={{imdb: "singleMovie.imdb_id"}}
-             plot={{plot: "singleMovie.plot"}}
-             release_date={{release_date: "singleMovie.release_date"}}
-             poster={{poster: "singleMovie.poster"}}
+            id={singleMovie.id}
+             title={singleMovie.title}
+             imdb_id={singleMovie.imdb_id}
+             plot={singleMovie.plot}
+             release_date={singleMovie.release_date}
+             poster={singleMovie.poster}
              reviews={movieReviews}
              
              
