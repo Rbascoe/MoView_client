@@ -99,6 +99,7 @@ export const LoginForm = (props) => {
       localStorage.token = userInfo.token
             localStorage.id = userInfo.user.id 
             localStorage.username = userInfo.user.username
+            localStorage.name = userInfo.user.name
             localStorage.age = userInfo.user.age
             localStorage.bio = userInfo.user.bio
             localStorage.loggedIn = true  

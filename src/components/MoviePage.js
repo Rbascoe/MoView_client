@@ -22,7 +22,8 @@ export const MoviePage = (props) => {
             {/* {props.reviews.map(review => review.content)} */}
             
             <div>
-            <ReviewForm  />
+            {localStorage.id?
+            <ReviewForm  />: null}
             </div>
             <div>
             <ReviewsContainer reviews={props.reviews}/>

@@ -5,6 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import Card from '@material-ui/core/Card';
 import Grid from '@material-ui/core/Grid';
+import Container from '@material-ui/core/Container';
 
 function Copyright() {
     return (
@@ -23,14 +24,21 @@ function Copyright() {
 export const MoviesContainer = (props) => {
 
   // const moviePage = props.movies.movies.map(movie => <MoviePage imdb_id={movie.imdb_id} title={movie.title} poster={movie.poster} plot={movie.plot} release_date={movie.release_date}/>)
-  const movies = props.movies.movies.map(movie => <MovieCard id={movie.id} title={movie.title} poster={movie.poster} plot={movie.plot}/>)
-        // {this.props.movies.map( movie =>
-        // <MoviePage title={movie.title} poster={movie.poster} plot={movie.plot}/>)};
+  
         return (
-            <div>
-              {movies}
+            <>
+              {props.movies.movies.map(movie => 
+    <Container  maxWidth="lg">
+        <Grid container spacing={2}>
+          <Grid item xs={9} sm={6} md={3}> 
+            <MovieCard id={movie.id} title={movie.title} poster={movie.poster} plot={movie.plot}/>
+           </Grid>
+        </Grid>    
+    </Container>   
+  )}
+              
               <Copyright />
-            </div>
+            </>
         )   
     
 }

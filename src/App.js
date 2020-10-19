@@ -10,6 +10,7 @@ import UserProfile from './components/UserProfile';
 import MoviePage from './components/MoviePage'
 import ReviewForm from './components/ReviewForm'
 import ReviewsContainer from './components/ReviewsContainer'
+import LoggedInNav from './components/LoggedInNav';
 
 
 function App() {
@@ -40,8 +41,8 @@ function App() {
         <BrowserRouter>
     
         <Header className="header"/>
-        <NavBar
-        />
+        {!localStorage.id?
+        <NavBar/>:<LoggedInNav/>}
           <br></br><br></br><br></br>
         <Switch>
           <Route exact path="/home" render={(routerProps) => <MoviesContainer {...routerProps} movies={moviesArray}/>}/>

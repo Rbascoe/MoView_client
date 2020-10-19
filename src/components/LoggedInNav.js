@@ -23,24 +23,27 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-export const NavBar = (props) => {
+export const LoggedInNav = (props) => {
     const classes = useStyles();
 
   return (
     <div className={classes.root}>
       <AppBar color='transparent' position="static">
         <Toolbar>
-          {/* <Typography variant="h6" className={classes.title}>
-            <h5>Welcome</h5>
-          </Typography> */}
+          <Typography variant="h6" className={classes.title}>
+            <h5>Welcome, {localStorage.username}</h5>
+          </Typography>
          
           <Button onClick={(e) => props.history.push("/home")} color="inherit">Home</Button>
-          <Button onClick={(e) => props.history.push("/signup")} color="inherit">Signup</Button>
-          <Button onClick={(e) => props.history.push("/login")}  color="inherit">Login</Button>
+          <Button onClick={(e) => props.history.push("/profile")} color="inherit">Profile</Button>
+          <Button onClick={(e) => {
+            localStorage.clear()
+            console.log(localStorage)
+            props.history.push("/home")}} color="inherit">Logout</Button>
         </Toolbar>
       </AppBar>
     </div>
   );
 }
 
-export default withRouter(NavBar);
+export default withRouter(LoggedInNav);

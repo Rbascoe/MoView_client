@@ -10,43 +10,48 @@ import Typography from '@material-ui/core/Typography';
 import { Route, withRouter } from 'react-router-dom';
 import { MoviePage } from './MoviePage';
 import FormRow from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+       maxwidth: 300,
+    },
+    media: {
+      height: 475,
+     
+    },
+  }));
 
 export const MovieCard = (props) => {
     // console.log(props)
+    const classes = useStyles();
 
     const redirectToMoviePage = () => {
         props.history.push(`/movie/${props.id}`)
     }
     return (
-        <div>
-            <Container  maxWidth="md">
-        
-                <Grid container spacing={4}>
-                     <Grid item xs={20} sm={6} md={4}> 
-                        
-                        <Card >
-                        <CardMedia />
-                            <img onClick={redirectToMoviePage} src={`http://image.tmdb.org/t/p/w200/${props.poster}`} />
-                    
-                        <CardContent >
-                            <Typography gutterBottom variant="h5" component="h2">
-                             {props.title}
-                            </Typography>
-                            <Typography>
-                                {props.plot}
-                            </Typography>
-                        </CardContent>
-                        <CardActions>
-                            <Button onClick={redirectToMoviePage} size="small" color="primary" >
-                            View
-                            </Button>
-                        </CardActions>
-                        </Card>
-                        
-                    </Grid>
-                </Grid>
-             </Container>    
-        </div>
+        <>
+            <Card className={classes.root} color='primary' >
+            <CardMedia 
+                 className={classes.media}  
+                 image={`http://image.tmdb.org/t/p/w200/${props.poster}`} 
+                 onClick={redirectToMoviePage}
+                 />
+            <CardContent >
+                <Typography gutterBottom variant="h5" component="h2">
+                    {props.title}
+                </Typography>
+                <Typography>
+                    {props.plot}
+                </Typography>
+            </CardContent>
+            <CardActions>
+                <Button onClick={redirectToMoviePage} size="small" color="primary" >
+                View
+                </Button>
+            </CardActions>
+            </Card>            
+        </>
     )
 }
 
