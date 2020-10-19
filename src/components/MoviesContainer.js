@@ -23,7 +23,7 @@ function Copyright() {
 export const MoviesContainer = (props) => {
 
   // const moviePage = props.movies.movies.map(movie => <MoviePage imdb_id={movie.imdb_id} title={movie.title} poster={movie.poster} plot={movie.plot} release_date={movie.release_date}/>)
-  const movies = props.movies.movies.map(movie => <MovieCard title={movie.title} poster={movie.poster} plot={movie.plot}/>)
+  const movies = props.movies.movies.map(movie => <MovieCard id={movie.id} title={movie.title} poster={movie.poster} plot={movie.plot}/>)
         // {this.props.movies.map( movie =>
         // <MoviePage title={movie.title} poster={movie.poster} plot={movie.plot}/>)};
         return (

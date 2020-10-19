@@ -15,7 +15,7 @@ export const MovieCard = (props) => {
     // console.log(props)
 
     const redirectToMoviePage = () => {
-        props.history.push(`/moviepage`)
+        props.history.push(`/movie/${props.id}`)
     }
     return (
         <div>
@@ -25,8 +25,8 @@ export const MovieCard = (props) => {
                      <Grid item xs={20} sm={6} md={4}> 
                         
                         <Card >
-                        <CardMedia/>
-                            <img src={`http://image.tmdb.org/t/p/w200/${props.poster}`} />
+                        <CardMedia />
+                            <img onClick={redirectToMoviePage} src={`http://image.tmdb.org/t/p/w200/${props.poster}`} />
                     
                         <CardContent >
                             <Typography gutterBottom variant="h5" component="h2">

@@ -4,17 +4,28 @@ import ReviewForm from './ReviewForm'
 import ReviewsContainer from './ReviewsContainer'
 
 export const MoviePage = (props) => {
-    console.log(props)
+    console.log(props.movie)
+
     return (
         <div>
             
-            <h1>{props.title}</h1>
+            <img src={`http://image.tmdb.org/t/p/w200/${props.poster}`} />
+            <h3>Title:</h3><br></br>
+            {props.title}
+            <h3>Plot: </h3><br></br>
+            {props.plot}
+            <h3>Imdb ID: </h3><br></br>
+            {props.imdb_id}
+            <h3>Release date: </h3><br></br>
+            {props.release_date}
+
+            {/* {props.reviews.map(review => review.content)} */}
             
             <div>
-            <ReviewForm />
+            <ReviewForm  />
             </div>
             <div>
-            <ReviewsContainer />
+            <ReviewsContainer reviews={props.reviews}/>
             </div>
         </div>
     )

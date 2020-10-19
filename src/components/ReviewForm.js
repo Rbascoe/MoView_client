@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
   }));
   
 
-const ReviewForm = () => {
+const ReviewForm = (props) => {
 
     const [review, setReview] = useState("");
     
@@ -73,7 +73,7 @@ const ReviewForm = () => {
         body: JSON.stringify({
             review: values.review,
             user_id: localStorage.id,
-            // movie_id: ,
+            movie_id: props.movie,
         })
       })
     .then(res => res.json())

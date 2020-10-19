@@ -17,11 +17,22 @@ function App() {
     movies: []
   })
   
+  const [reviews, setReviews] = useState({
+    reviews: []
+  })
+
+  // const [movieReviews, setMovieReviews] = useState([])
 
   useEffect(() => {
     fetch("http://localhost:3000/api/v1/movies")
     .then(res => res.json())
     .then(movies => setMovies({movies: [...movies]}))
+  },[])
+
+  useEffect(() => {
+    fetch("http://localhost:3000/api/v1/reviews")
+    .then(res => res.json())
+    .then(reviews => setReviews({reviews: reviews}))
   },[])
 
   return (
@@ -42,9 +53,26 @@ function App() {
           <Route path="/movie/:id" render={(props) => {
           
             let id=parseInt(props.match.params.id)
-            let movieShow = moviesArray.movies.map(movie => movie)
-            let singleMovie = movieShow.find(oneMovie => oneMovie.id === id)
-             return <MoviePage  movie={singleMovie}/>}}/>
+            // let movieShow = moviesArray.movies.map(movie => movie)
+            let singleMovie = moviesArray.movies.find(oneMovie => oneMovie.id === id)
+            let movieReviews = []
+            let review = reviews.reviews.map(singleReview => {
+              if (singleReview.movie_id === singleMovie.id ){
+                movieReviews.push(singleReview)
+              }
+            })
+            console.log(movieReviews)
+
+             return <MoviePage  movie={singleMovie} 
+             title={singleMovie.title} 
+             imdb_id={singleMovie.imdb_id}
+             plot={singleMovie.plot}
+             release_date={singleMovie.release_date}
+             poster={singleMovie.poster}
+             reviews={movieReviews}
+             
+             
+             />}}/>
         </BrowserRouter>
       </div>
   );
