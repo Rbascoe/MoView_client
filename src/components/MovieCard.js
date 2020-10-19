@@ -41,9 +41,9 @@ export const MovieCard = (props) => {
                 <Typography gutterBottom variant="h5" component="h2">
                     {props.title}
                 </Typography>
-                <Typography>
+                {/* <Typography>
                     {props.plot}
-                </Typography>
+                </Typography> */}
             </CardContent>
             <CardActions>
                 <Button onClick={redirectToMoviePage} size="small" color="primary" >

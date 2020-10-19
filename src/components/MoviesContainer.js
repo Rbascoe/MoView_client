@@ -26,19 +26,18 @@ export const MoviesContainer = (props) => {
   // const moviePage = props.movies.movies.map(movie => <MoviePage imdb_id={movie.imdb_id} title={movie.title} poster={movie.poster} plot={movie.plot} release_date={movie.release_date}/>)
   
         return (
-            <>
+          <>
+          <Container  maxWidth="lg">
+            <Grid container spacing={2}>
               {props.movies.movies.map(movie => 
-    <Container  maxWidth="lg">
-        <Grid container spacing={2}>
-          <Grid item xs={9} sm={6} md={3}> 
+          <Grid item xs={12} sm={8} md={4}> 
             <MovieCard id={movie.id} title={movie.title} poster={movie.poster} plot={movie.plot}/>
-           </Grid>
-        </Grid>    
-    </Container>   
+           </Grid>  
   )}
-              
-              <Copyright />
-            </>
+            </Grid>    
+          </Container> 
+           <Copyright />
+          </>
         )   
     
 }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useLayoutEffect} from 'react';
 import './App.css';
 import { BrowserRouter, Route, Switch, withRouter } from 'react-router-dom';
 import Header from './components/Header.js'
@@ -69,7 +69,8 @@ function App() {
             })
             console.log(movieReviews)
 
-             return <MoviePage  movie={singleMovie} 
+             return <MoviePage  
+             movie={singleMovie} 
              title={singleMovie.title} 
              imdb_id={singleMovie.imdb_id}
              plot={singleMovie.plot}
