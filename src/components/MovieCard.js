@@ -31,7 +31,7 @@ export const MovieCard = (props) => {
     }
     return (
         <>
-            <Card className={classes.root} color='primary' >
+            <Card className={classes.root} color='black' >
             <CardMedia 
                  className={classes.media}  
                  image={`http://image.tmdb.org/t/p/w200/${props.poster}`} 

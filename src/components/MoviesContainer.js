@@ -36,6 +36,7 @@ export const MoviesContainer = (props) => {
   )}
             </Grid>    
           </Container> 
+          <br></br><br></br>
            <Copyright />
           </>
         )   

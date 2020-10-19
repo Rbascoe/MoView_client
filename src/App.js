@@ -54,11 +54,8 @@ function App() {
           <Route path="/profile" render={(routerProps) => <UserProfile {...routerProps} />}/>
           
           <Route exact path="/movie/:id" render={(props) => {
-            
-          
             let id=parseInt(props.match.params.id)
             
-            // let movieShow = moviesArray.movies.map(movie => movie)
             let singleMovie = moviesArray.movies.find(oneMovie => oneMovie.id === id)
             console.log(moviesArray)
             let movieReviews = []
@@ -71,11 +68,11 @@ function App() {
 
              return <MoviePage  
              movie={singleMovie} 
-             title={singleMovie.title} 
-             imdb_id={singleMovie.imdb_id}
-             plot={singleMovie.plot}
-             release_date={singleMovie.release_date}
-             poster={singleMovie.poster}
+            //  title={singleMovie.title} 
+            //  imdb_id={singleMovie.imdb_id}
+            //  plot={singleMovie.plot}
+            //  release_date={singleMovie.release_date}
+            //  poster={singleMovie.poster}
              reviews={movieReviews}
              
              

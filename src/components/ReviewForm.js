@@ -74,11 +74,12 @@ const ReviewForm = (props) => {
             review: values.review,
             user_id: localStorage.id,
             movie_id: props.movie,
+            upvotes: 0,
+            downvotes: 0
         })
       })
     .then(res => res.json())
-    .then(review => {console.log(review)
-    })
+    .then(review => console.log(review))
   }
 
   return (
