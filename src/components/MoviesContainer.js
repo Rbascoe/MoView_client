@@ -22,12 +22,13 @@ function Copyright() {
   
 
 export const MoviesContainer = (props) => {
+  console.log(props)
 
   // const moviePage = props.movies.movies.map(movie => <MoviePage imdb_id={movie.imdb_id} title={movie.title} poster={movie.poster} plot={movie.plot} release_date={movie.release_date}/>)
   
         return (
             <>
-              {props.movies.movies.map(movie => 
+              {props.movies.map(movie => 
     <Container  maxWidth="lg">
         <Grid container spacing={2}>
           <Grid item xs={9} sm={6} md={3}> 
