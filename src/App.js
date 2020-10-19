@@ -22,12 +22,13 @@ function App() {
     reviews: []
   })
 
-  // const [movieReviews, setMovieReviews] = useState([])
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     fetch("http://localhost:3000/api/v1/movies")
     .then(res => res.json())
-    .then(movies => setMovies({movies: [...movies]}))
+    .then(movies => setMovies({movies: [...movies]}),
+    setLoading(false))
   },[])
 
   useEffect(() => {
@@ -38,6 +39,7 @@ function App() {
 
   return (
       <div className="App">
+        {!loading?
         <BrowserRouter>
     
         <Header className="header"/>
@@ -50,12 +52,15 @@ function App() {
           <Route path="/signup" render={(routerProps) => <SignupForm {...routerProps} />}/>
           <Route path="/login" render={(routerProps) => <LoginForm {...routerProps} />}/>
           <Route path="/profile" render={(routerProps) => <UserProfile {...routerProps} />}/>
-       
-          <Route path="/movie/:id" render={(props) => {
+          
+          <Route exact path="/movie/:id" render={(props) => {
+            
           
             let id=parseInt(props.match.params.id)
+            
             // let movieShow = moviesArray.movies.map(movie => movie)
             let singleMovie = moviesArray.movies.find(oneMovie => oneMovie.id === id)
+            console.log(moviesArray)
             let movieReviews = []
             let review = reviews.reviews.map(singleReview => {
               if (singleReview.movie_id === singleMovie.id ){
@@ -74,7 +79,8 @@ function App() {
              
              
              />}}/>
-        </BrowserRouter>
+        </BrowserRouter>:
+        <div>...Loading</div>}
       </div>
   );
 }

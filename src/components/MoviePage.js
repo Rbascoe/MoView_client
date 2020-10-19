@@ -4,6 +4,7 @@ import ReviewForm from './ReviewForm'
 import ReviewsContainer from './ReviewsContainer'
 
 export const MoviePage = (props) => {
+    debugger
     console.log(props.movie)
 
     return (
