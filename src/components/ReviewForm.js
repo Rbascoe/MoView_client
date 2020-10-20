@@ -56,22 +56,22 @@ const ReviewForm = (props) => {
 
 
   const handleSubmit = (e) => {
-    //   debugger
+      // debugger
     e.preventDefault()
 
-    // const values = {
-    //     review: review 
-    // };
+    const reviewInput = review
+        
+  
 
     // const movie_id = movie.data.id
-
+    // debugger
     fetch(`http://localhost:3000/api/v1/movies/${props.id}/reviews`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            content: this.state.review,
+            content: reviewInput,
             user_id: localStorage.id,
             movie_id: props.id,
             upvotes: 0,
@@ -80,6 +80,8 @@ const ReviewForm = (props) => {
       })
     .then(res => res.json())
     .then(review => console.log(review))
+
+    
   }
 
   return (

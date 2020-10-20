@@ -111,6 +111,7 @@ export const LoginForm = (props) => {
             }) 
             
             console.log(userInfo)
+            props.login()
             props.history.push("/profile")
     })
   }

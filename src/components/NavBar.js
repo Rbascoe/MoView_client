@@ -2,12 +2,12 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
+// import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
+// import IconButton from '@material-ui/core/IconButton';
+// import MenuIcon from '@material-ui/icons/Menu';
 import { Route, withRouter } from 'react-router-dom';
-import { red } from '@material-ui/core/colors';
+// import { red } from '@material-ui/core/colors';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -28,7 +28,7 @@ export const NavBar = (props) => {
 
   return (
     <div className={classes.root}>
-      <AppBar color='transparent' position="static">
+      <AppBar color='yellow' position="static">
         <Toolbar>
           {/* <Typography variant="h6" className={classes.title}>
             <h5>Welcome</h5>

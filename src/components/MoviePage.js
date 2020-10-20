@@ -20,9 +20,11 @@ export const MoviePage = (props) => {
 
     const [reviews, setReviews] = useState([])
 
-    useEffect(() => {fetch(`http://localhost:3000/api/v1/movies/${props.id}/reviews`)
-    .then(res => res.json())
-    .then(reviews => setReviews([...reviews]))})
+    useEffect(() => {
+        fetch(`http://localhost:3000/api/v1/movies/${props.id}/reviews`)
+        .then(res => res.json())
+        .then(reviews => setReviews([...reviews]))
+    })
 
 
     return (

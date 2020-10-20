@@ -18,7 +18,8 @@ class App extends Component {
 
   state = {
     moviesArray: [],
-    loading: true
+    loading: true,
+    loggedIn: false
   }
 
 
@@ -30,11 +31,18 @@ class App extends Component {
       loading: false}))
   }
 
-  // componentDidMount(){
-  //   fetch("http://localhost:3000/api/v1/reviews")
-  //   .then(res => res.json())
-  //   .then(reviews => this.setState({reviews: reviews}))
-  // }
+  login = () => {
+    if (localStorage.id){
+      this.setState({loggedIn: true})
+    }
+  }
+
+  logout = () => {
+    if (!localStorage.id){
+      this.setState({loggedIn: false})
+    }
+  }
+
 render(){
   return (
       <div className="App">
@@ -43,13 +51,13 @@ render(){
     
         <Header className="header"/>
         {!localStorage.id?
-        <NavBar/>:<LoggedInNav/>}
+        <NavBar/>:<LoggedInNav logout={this.logout}/>}
           <br></br><br></br><br></br>
         <Switch>
           <Route exact path="/home" render={(routerProps) => <MoviesContainer {...routerProps} movies={this.state.moviesArray}/>}/>
         </Switch>
           <Route path="/signup" render={(routerProps) => <SignupForm {...routerProps} />}/>
-          <Route path="/login" render={(routerProps) => <LoginForm {...routerProps} />}/>
+          <Route path="/login" render={(routerProps) => <LoginForm {...routerProps} login={this.login}/>}/>
           <Route path="/profile" render={(routerProps) => <UserProfile {...routerProps} />}/>
           
           <Route exact path="/movie/:id" render={(props) => {
