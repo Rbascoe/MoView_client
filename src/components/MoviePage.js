@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Route, withRouter } from 'react-router-dom';
 import ReviewForm from './ReviewForm';
 import ReviewsContainer from './ReviewsContainer';
@@ -18,6 +18,13 @@ export const MoviePage = (props) => {
     console.log(props)
     const classes = useStyles();
 
+    const [reviews, setReviews] = useState([])
+
+    useEffect(() => {fetch(`http://localhost:3000/api/v1/movies/${props.id}/reviews`)
+    .then(res => res.json())
+    .then(reviews => setReviews([...reviews]))})
+
+
     return (
         <div>
             <Container>
@@ -36,10 +43,10 @@ export const MoviePage = (props) => {
                 <Grid item className={classes.container}> 
                     <div>
                     {localStorage.id?
-                    <ReviewForm  />: null}
+                    <ReviewForm id={props.id} />: null}
                     </div>
                     <div>
-                    <ReviewsContainer reviews={props.reviews}/>
+                    <ReviewsContainer reviews={reviews}/>
                     </div>
                 </Grid>
                 </Grid>

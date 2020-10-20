@@ -59,21 +59,21 @@ const ReviewForm = (props) => {
     //   debugger
     e.preventDefault()
 
-    const values = {
-        review: review 
-    };
+    // const values = {
+    //     review: review 
+    // };
 
     // const movie_id = movie.data.id
 
-    fetch("http://localhost:3000/api/v1/reviews", {
+    fetch(`http://localhost:3000/api/v1/movies/${props.id}/reviews`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            review: values.review,
+            content: this.state.review,
             user_id: localStorage.id,
-            movie_id: props.movie,
+            movie_id: props.id,
             upvotes: 0,
             downvotes: 0
         })

@@ -18,7 +18,6 @@ class App extends Component {
 
   state = {
     moviesArray: [],
-    reviews: [],
     loading: true
   }
 
@@ -61,12 +60,12 @@ render(){
             // let movieShow = moviesArray.movies.map(movie => movie)
             let singleMovie = this.state.moviesArray.find(oneMovie => oneMovie.id === id)
             console.log(this.state.moviesArray)
-            let movieReviews = []
-            let review = this.state.reviews.map(singleReview => {
-              if (singleReview.movie_id === singleMovie.id ){
-                movieReviews.push(singleReview)
-              }
-            })
+            // let movieReviews = []
+            // let review = this.state.reviews.map(singleReview => {
+            //   if (singleReview.movie_id === singleMovie.id ){
+            //     movieReviews.push(singleReview)
+              // }
+            // })
             // console.log(movieReviews)
 
              return <MoviePage  
@@ -77,7 +76,7 @@ render(){
              plot={singleMovie.plot}
              release_date={singleMovie.release_date}
              poster={singleMovie.poster}
-             reviews={movieReviews}
+            //  reviews={movieReviews}
              
              
              />}}/>
