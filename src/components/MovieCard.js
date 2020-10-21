@@ -15,6 +15,9 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
     root: {
        maxwidth: 300,
+    //    backgroundColor: "grey",
+       backgroundColor: theme.palette.error.dark,
+       color: theme.palette.primary.contrastText
     },
     media: {
       height: 475,
@@ -31,7 +34,7 @@ export const MovieCard = (props) => {
     }
     return (
         <>
-            <Card className={classes.root} color='black' >
+            <Card className={classes.root} color='secondary' >
             <CardMedia 
                  className={classes.media}  
                  image={`http://image.tmdb.org/t/p/w200/${props.poster}`} 

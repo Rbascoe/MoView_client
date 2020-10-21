@@ -6,7 +6,7 @@ const ReviewsContainer = (props) => {
         <div>
             <h2>Reviews</h2>
             <ul>
-            {props.reviews.map(review => <li>{review.content}</li>)}
+                {props.reviews.map(review => <li>{review.content}<br></br>-{localStorage.username}</li>)}
             </ul>
         </div>
     )

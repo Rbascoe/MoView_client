@@ -36,15 +36,24 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.error.dark,
   },
   form: {
     width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing(1),
   },
+  notchedOutline: {
+    borderWidth: "1px",
+    borderColor: "red !important"
+  },
   submit: {
     margin: theme.spacing(3, 0, 2),
+    backgroundColor: '#e53935',
+    contrastText: 'white'
   },
+  link: {
+    color: '#c62828'
+  }
 }));
 
 
@@ -158,6 +167,11 @@ const handleChangeBio = (e) => {
                 value={name}
                 autoComplete="name"
                 autoFocus
+                InputProps={{
+                  classes: {
+                    notchedOutline: classes.notchedOutline
+                  }
+                }}
             />
             <TextField onChange={handleChangeUsername}
                 variant="outlined"
@@ -170,18 +184,28 @@ const handleChangeBio = (e) => {
                 value={username}
                 autoComplete="username"
                 autoFocus
+                InputProps={{
+                  classes: {
+                    notchedOutline: classes.notchedOutline
+                  }
+                }}
             />
             <TextField onChange={handleChangePassword}
-                    variant="outlined"
-                    margin="normal"
-                    required
-                    fullWidth
-                    name="password"
-                    value={password}
-                    label="Password"
-                    type="password"
-                    id="password"
-                    autoComplete="current-password"
+                  variant="outlined"
+                  margin="normal"
+                  required
+                  fullWidth
+                  name="password"
+                  value={password}
+                  label="Password"
+                  type="password"
+                  id="password"
+                  autoComplete="current-password"
+                  InputProps={{
+                    classes: {
+                      notchedOutline: classes.notchedOutline
+                    }
+                  }}
             />
             <TextField onChange={handleChangeAge}
                 variant="outlined"
@@ -194,6 +218,11 @@ const handleChangeBio = (e) => {
                 value={age}
                 autoComplete="age"
                 autoFocus
+                InputProps={{
+                  classes: {
+                    notchedOutline: classes.notchedOutline
+                  }
+                }}
             />
             <TextField onChange={handleChangeBio}
             variant="outlined"
@@ -206,6 +235,11 @@ const handleChangeBio = (e) => {
             value={bio}
             autoComplete="bio"
             autoFocus
+            InputProps={{
+              classes: {
+                notchedOutline: classes.notchedOutline
+              }
+            }}
           />
             <Button
                 type="submit"
@@ -218,7 +252,7 @@ const handleChangeBio = (e) => {
             </Button>
             <Grid container>
                 <Grid item>
-                <Link to="/login" href="/login" variant="body2">
+                <Link className={classes.link} to="/login" href="/login" variant="body2">
                     {"Already an account? Log In"}
                 </Link>
                 </Grid>

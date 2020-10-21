@@ -13,6 +13,8 @@ import { Route, withRouter } from 'react-router-dom';
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
+      backgroundColor: theme.palette.error.dark,
+      color: theme.palette.primary.contrastText
      
     },
     menuButton: {

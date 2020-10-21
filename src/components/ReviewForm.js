@@ -22,16 +22,18 @@ const useStyles = makeStyles((theme) => ({
       flexDirection: 'column',
       alignItems: 'center',
     },
-    avatar: {
-      margin: theme.spacing(1),
-      backgroundColor: theme.palette.secondary.main,
-    },
     form: {
       width: '50%', // Fix IE 11 issue.
       marginTop: theme.spacing(1),
     },
+    notchedOutline: {
+      borderWidth: "1px",
+      borderColor: "red !important"
+    },
     submit: {
       margin: theme.spacing(3, 0, 2),
+      backgroundColor: '#e53935',
+      contrastText: 'white'
     },
   }));
   
@@ -104,6 +106,11 @@ const ReviewForm = (props) => {
             name="review"
             value={review}
             autoFocus
+            InputProps={{
+              classes: {
+                notchedOutline: classes.notchedOutline
+              }
+            }}
           />
           <Button
             type="submit"

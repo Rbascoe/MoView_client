@@ -12,7 +12,17 @@ import ReviewForm from './components/ReviewForm'
 import ReviewsContainer from './components/ReviewsContainer'
 import LoggedInNav from './components/LoggedInNav';
 import { render } from 'react-dom';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { dark } from '@material-ui/core/styles/createPalette';
 
+const theme = createMuiTheme({
+  palette: {
+    common: {
+      black: '#000',
+      type: 'dark'
+    }
+  }
+});
 
 class App extends Component {
 
@@ -21,6 +31,8 @@ class App extends Component {
     loading: true,
     loggedIn: false
   }
+
+  
 
 
 
@@ -45,6 +57,7 @@ class App extends Component {
 
 render(){
   return (
+    <MuiThemeProvider theme={theme}>
       <div className="App">
         {!this.state.loading?
         <BrowserRouter>
@@ -91,6 +104,7 @@ render(){
         </BrowserRouter>:
         <div>...Loading</div>}
       </div>
+      </MuiThemeProvider>
   )};
           
 }

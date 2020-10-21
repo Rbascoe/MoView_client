@@ -13,6 +13,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import { red } from '@material-ui/core/colors/red';
 
 function Copyright() {
   return (
@@ -36,15 +37,26 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.error.dark,
   },
   form: {
     width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing(1),
   },
+  notchedOutline: {
+    borderWidth: "1px",
+    borderColor: "red !important"
+  },
   submit: {
     margin: theme.spacing(3, 0, 2),
+    backgroundColor: '#e53935',
+    contrastText: 'white'
   },
+  link: {
+    color: '#c62828'
+  }
+    
+    
 }));
 
 
@@ -140,6 +152,11 @@ export const LoginForm = (props) => {
             value={username}
             autoComplete="username"
             autoFocus
+            InputProps={{
+              classes: {
+                notchedOutline: classes.notchedOutline
+              }
+            }}
           />
           <TextField onChange={handleChangePassword}
             variant="outlined"
@@ -152,19 +169,23 @@ export const LoginForm = (props) => {
             type="password"
             id="password"
             autoComplete="current-password"
+            InputProps={{
+              classes: {
+                notchedOutline: classes.notchedOutline
+              }
+            }}
           />
           <Button
             type="submit"
             fullWidth
             variant="contained"
-            color="primary"
             className={classes.submit}
           >
             Log In
           </Button>
           <Grid container>
             <Grid item>
-              <Link to="/signup" href="/signup" variant="body2">
+              <Link className={classes.link} to="/signup" href="/signup" variant="body2">
                 {"Don't have an account? Sign Up"}
               </Link>
             </Grid>
