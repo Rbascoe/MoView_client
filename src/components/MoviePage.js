@@ -28,10 +28,10 @@ export const MoviePage = (props) => {
 
 
     return (
+        <Container>
         <div>
-            <Container>
                 <Grid container spacing={0} >
-                <Grid item className={classes.container}>
+                <Grid item xs={6}>
                     <img src={`http://image.tmdb.org/t/p/w200/${props.poster}`} />
                     <h3>Title:</h3><br></br>
                     <b>{props.title}</b>
@@ -42,7 +42,7 @@ export const MoviePage = (props) => {
                     <h3>Release date: </h3><br></br>
                     <b>{props.release_date}</b>
                 </Grid>
-                <Grid item className={classes.container}> 
+                <Grid item xs={6}> 
                     <div>
                     {localStorage.id?
                     <ReviewForm id={props.id} />: null}
@@ -52,8 +52,8 @@ export const MoviePage = (props) => {
                     </div>
                 </Grid>
                 </Grid>
-            </Container>
         </div>
+        </Container>
     )
 }
 
