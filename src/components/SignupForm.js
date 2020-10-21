@@ -46,6 +46,9 @@ const useStyles = makeStyles((theme) => ({
     borderWidth: "1px",
     borderColor: "red !important"
   },
+  multilineColor:{
+    color: 'white'
+  },
   submit: {
     margin: theme.spacing(3, 0, 2),
     backgroundColor: '#e53935',
@@ -144,13 +147,13 @@ const handleChangeBio = (e) => {
   }
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container component="main" maxWidth="xs" style={{backgroundColor: '#37474f'}}>
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
-        <Typography component="h1" variant="h5">
+        <Typography component="h1" variant="h5" style={{color: 'white'}}>
           Sign up
         </Typography>
         <form onSubmit={(e) => 
@@ -169,7 +172,8 @@ const handleChangeBio = (e) => {
                 autoFocus
                 InputProps={{
                   classes: {
-                    notchedOutline: classes.notchedOutline
+                    notchedOutline: classes.notchedOutline,
+                    input: classes.multilineColor
                   }
                 }}
             />
@@ -186,7 +190,8 @@ const handleChangeBio = (e) => {
                 autoFocus
                 InputProps={{
                   classes: {
-                    notchedOutline: classes.notchedOutline
+                    notchedOutline: classes.notchedOutline,
+                    input: classes.multilineColor
                   }
                 }}
             />
@@ -203,7 +208,8 @@ const handleChangeBio = (e) => {
                   autoComplete="current-password"
                   InputProps={{
                     classes: {
-                      notchedOutline: classes.notchedOutline
+                      notchedOutline: classes.notchedOutline,
+                      input: classes.multilineColor
                     }
                   }}
             />
@@ -220,7 +226,8 @@ const handleChangeBio = (e) => {
                 autoFocus
                 InputProps={{
                   classes: {
-                    notchedOutline: classes.notchedOutline
+                    notchedOutline: classes.notchedOutline,
+                    input: classes.multilineColor
                   }
                 }}
             />
@@ -237,7 +244,8 @@ const handleChangeBio = (e) => {
             autoFocus
             InputProps={{
               classes: {
-                notchedOutline: classes.notchedOutline
+                notchedOutline: classes.notchedOutline,
+                input: classes.multilineColor
               }
             }}
           />
@@ -247,6 +255,7 @@ const handleChangeBio = (e) => {
                 variant="contained"
                 color="primary"
                 className={classes.submit}
+                style={{color:'white'}}
             >
                 Sign Up
             </Button>

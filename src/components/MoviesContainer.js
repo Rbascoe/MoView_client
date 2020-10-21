@@ -27,6 +27,10 @@ export const MoviesContainer = (props) => {
   
         return (
           <>
+           <br/>
+           <br/>
+           <br/>
+          
           <Container  maxWidth="lg">
             <Grid container spacing={2}>
               {props.movies.map(movie => 

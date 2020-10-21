@@ -28,19 +28,21 @@ export const MoviePage = (props) => {
 
 
     return (
-        <Container>
-        <div>
+        <Container style={{backgroundColor: '#495057'}}>
+            <br/>
+            <br/>
+        <div >
                 <Grid container spacing={0} >
                 <Grid item xs={6}>
                     <img src={`http://image.tmdb.org/t/p/w200/${props.poster}`} />
-                    <h3>Title:</h3><br></br>
-                    <b>{props.title}</b>
-                    <h3>Plot: </h3><br></br>
-                    <b>{props.plot}</b>
-                    <h3>Imdb ID: </h3><br></br>
-                    <b>{props.imdb_id}</b>
-                    <h3>Release date: </h3><br></br>
-                    <b>{props.release_date}</b>
+                    <h3 style={{color: 'red'}} >Title:</h3>
+                        <b style={{color: 'white'}}>{props.title}</b>
+                    <h3 style={{color: 'red'}} >Plot: </h3>
+                        <b style={{color: 'white'}}>{props.plot}</b>
+                    <h3 style={{color: 'red'}} > Imdb ID: </h3>
+                        <b style={{color: 'white'}}>{props.imdb_id}</b>
+                    <h3 style={{color: 'red'}} >Release date: </h3>
+                        <b style={{color: 'white'}}>{props.release_date}</b>
                 </Grid>
                 <Grid item xs={6}> 
                     <div>

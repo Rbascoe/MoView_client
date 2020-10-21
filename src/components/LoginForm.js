@@ -47,6 +47,9 @@ const useStyles = makeStyles((theme) => ({
     borderWidth: "1px",
     borderColor: "red !important"
   },
+  multilineColor:{
+    color: 'white'
+  },
   submit: {
     margin: theme.spacing(3, 0, 2),
     backgroundColor: '#e53935',
@@ -129,13 +132,13 @@ export const LoginForm = (props) => {
   }
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container component="main" maxWidth="xs" style={{backgroundColor: '#37474f'}}>
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
-        <Typography component="h1" variant="h5">
+        <Typography component="h1" variant="h5" style={{color:'white'}}>
           Log in
         </Typography>
         <form onSubmit={(e) => 
@@ -154,7 +157,8 @@ export const LoginForm = (props) => {
             autoFocus
             InputProps={{
               classes: {
-                notchedOutline: classes.notchedOutline
+                notchedOutline: classes.notchedOutline,
+                input: classes.multilineColor
               }
             }}
           />
@@ -171,7 +175,8 @@ export const LoginForm = (props) => {
             autoComplete="current-password"
             InputProps={{
               classes: {
-                notchedOutline: classes.notchedOutline
+                notchedOutline: classes.notchedOutline,
+                input: classes.multilineColor
               }
             }}
           />
@@ -180,6 +185,7 @@ export const LoginForm = (props) => {
             fullWidth
             variant="contained"
             className={classes.submit}
+            style={{color:'white'}}
           >
             Log In
           </Button>

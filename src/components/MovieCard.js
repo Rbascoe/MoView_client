@@ -23,6 +23,9 @@ const useStyles = makeStyles((theme) => ({
       height: 475,
      
     },
+    button: {
+        color: 'white'
+    }
   }));
 
 export const MovieCard = (props) => {
@@ -49,7 +52,7 @@ export const MovieCard = (props) => {
                 </Typography> */}
             </CardContent>
             <CardActions>
-                <Button onClick={redirectToMoviePage} size="small" color="primary" >
+                <Button className={classes.button} onClick={redirectToMoviePage} size="small" color="primary" >
                 View
                 </Button>
             </CardActions>

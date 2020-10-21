@@ -7,7 +7,7 @@ export const Header = () => {
     
     return (
         <div className='header'>
-            <h1 className='header'>MoView</h1>
+            <h1 style={{color: 'white'}} className='header'>MoView</h1>
         </div>
     )
 }

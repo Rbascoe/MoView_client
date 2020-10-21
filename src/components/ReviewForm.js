@@ -23,12 +23,16 @@ const useStyles = makeStyles((theme) => ({
       alignItems: 'center',
     },
     form: {
-      width: '50%', // Fix IE 11 issue.
+      width: '80%', // Fix IE 11 issue.
       marginTop: theme.spacing(1),
     },
     notchedOutline: {
       borderWidth: "1px",
-      borderColor: "red !important"
+      borderColor: "red !important",
+     
+    },
+    multilineColor:{
+      color: 'white'
     },
     submit: {
       margin: theme.spacing(3, 0, 2),
@@ -87,10 +91,11 @@ const ReviewForm = (props) => {
   }
 
   return (
-    <Container component="main" maxWidth="xs">
+    
+    <Container component="main" style={{backgroundColor: '#37474f', width: '400px'}}>
       <CssBaseline />
       <div className={classes.paper}>
-        <Typography component="h1" variant="h5">
+        <Typography style={{color:'white'}}component="h1" variant="h5">
           Write a Review
         </Typography>
         <form onSubmit={(e) => 
@@ -108,7 +113,8 @@ const ReviewForm = (props) => {
             autoFocus
             InputProps={{
               classes: {
-                notchedOutline: classes.notchedOutline
+                notchedOutline: classes.notchedOutline,
+                input: classes.multilineColor
               }
             }}
           />
@@ -128,6 +134,7 @@ const ReviewForm = (props) => {
       <Box mt={8}>
       </Box>
     </Container>
+  
   );
 }
 

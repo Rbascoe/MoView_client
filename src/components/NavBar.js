@@ -30,7 +30,7 @@ export const NavBar = (props) => {
 
   return (
     <div className={classes.root}>
-      <AppBar color='transparent' position="static">
+      <AppBar className={classes.root} position="static">
         <Toolbar>
           {/* <Typography variant="h6" className={classes.title}>
             <h5>Welcome</h5>

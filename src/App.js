@@ -57,15 +57,15 @@ class App extends Component {
 
 render(){
   return (
-    <MuiThemeProvider theme={theme}>
-      <div className="App">
+      <div style={{backgroundColor: '#495057'}}>
+        
         {!this.state.loading?
         <BrowserRouter>
     
         <Header className="header"/>
         {!localStorage.id?
         <NavBar/>:<LoggedInNav logout={this.logout}/>}
-          <br></br><br></br><br></br>
+          {/* <br></br><br></br><br></br> */}
         <Switch>
           <Route exact path="/home" render={(routerProps) => <MoviesContainer {...routerProps} movies={this.state.moviesArray}/>}/>
         </Switch>
@@ -81,30 +81,24 @@ render(){
             // let movieShow = moviesArray.movies.map(movie => movie)
             let singleMovie = this.state.moviesArray.find(oneMovie => oneMovie.id === id)
             console.log(this.state.moviesArray)
-            // let movieReviews = []
-            // let review = this.state.reviews.map(singleReview => {
-            //   if (singleReview.movie_id === singleMovie.id ){
-            //     movieReviews.push(singleReview)
-              // }
-            // })
-            // console.log(movieReviews)
+           
 
              return <MoviePage  
-            //  movie={singleMovie} 
+            
             id={singleMovie.id}
              title={singleMovie.title}
              imdb_id={singleMovie.imdb_id}
              plot={singleMovie.plot}
              release_date={singleMovie.release_date}
              poster={singleMovie.poster}
-            //  reviews={movieReviews}
+           
              
              
              />}}/>
         </BrowserRouter>:
         <div>...Loading</div>}
       </div>
-      </MuiThemeProvider>
+
   )};
           
 }
