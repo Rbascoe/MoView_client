@@ -52,7 +52,11 @@ export const MovieCard = (props) => {
                 </Typography> */}
             </CardContent>
             <CardActions>
-                <Button className={classes.button} onClick={redirectToMoviePage} size="small" color="primary" >
+                <Button className={classes.button} 
+                onClick={redirectToMoviePage} 
+                size="small" 
+                color="primary"
+                style={{color: 'blue'}} >
                 View
                 </Button>
             </CardActions>

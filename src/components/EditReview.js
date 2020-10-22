@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
   }));
   
 
-const ReviewForm = (props) => {
+const EditReviewForm = (props) => {
 
     const [review, setReview] = useState("");
     
@@ -72,7 +72,7 @@ const ReviewForm = (props) => {
     // const movie_id = movie.data.id
     // debugger
     fetch(`http://localhost:3000/api/v1/movies/${props.id}/reviews`, {
-        method: "POST",
+        method: "PATCH",
         headers: {
             "Content-Type": "application/json"
         },
@@ -86,6 +86,8 @@ const ReviewForm = (props) => {
       })
     .then(res => res.json())
     .then(review => console.log(review))
+
+    
   }
 
   return (
@@ -136,5 +138,4 @@ const ReviewForm = (props) => {
   );
 }
 
-export default ReviewForm
-
+export default EditReviewForm

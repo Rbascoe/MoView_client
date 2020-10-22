@@ -33,7 +33,7 @@ export const LoggedInNav = (props) => {
       <AppBar className={classes.root} position="static">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            <h5>Welcome, {localStorage.username}</h5>
+            <h5><b style={{color: 'blue'}}>Welcome</b>, {localStorage.username}</h5>
           </Typography>
          
           <Button onClick={(e) => props.history.push("/home")} color="inherit">Home</Button>
