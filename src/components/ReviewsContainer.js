@@ -11,21 +11,33 @@ const useStyles = makeStyles((theme) => ({
       contrastText: 'white',
       borderRightWidth: "1px"
     },
-        
-  }));
+})
+);
   
   
 const ReviewsContainer = (props) => {
-    // console.log(props)
+    console.log(props)
+
+//     const deleteReview = (id) => {
+//         console.log(id)
+//         fetch(`http://localhost:3000/api/v1/movies/${props.reviews.id}/reviews/${id}`,{
+//             method: "DELETE",
+//             headers: {
+//                 Authorization: `Bearer ${localStorage.token}`
+//             }})
+//         .then(() => {
+//             alert("Review successfully deleted");
+//         })
+//   }
     const classes = useStyles();
     return (
         <div border='right'>
             <h2 style={{color: 'white'}}>Reviews</h2>
             <List style={{backgroundColor: '#37474f'}}>
-                
-                {props.reviews.map(review => <ListItem><ListItemText style={{color: 'white'}}><b>{review.content}</b><br></br>
-                <Button className={classes.button}>Edit</Button>
-                <Button className={classes.button}>Delete</Button></ListItemText></ListItem>)}
+                {props.reviews.map(review => <ListItem><ListItemText style={{color: 'white'}}><b>-"{review.content}"</b><br></br>
+                {/* <Button className={classes.button}>Edit</Button>
+                <Button className={classes.button} onClick={deleteReview}>Delete</Button> */}
+                </ListItemText></ListItem>)}
        
             </List>
         </div>

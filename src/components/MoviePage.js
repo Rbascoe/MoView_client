@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
 
   }));
 
+
 export const MoviePage = (props) => {
     // debugger
     console.log(props)
@@ -50,7 +51,7 @@ export const MoviePage = (props) => {
                     <ReviewForm id={props.id} />: null}
                     </div>
                     <div>
-                    <ReviewsContainer reviews={reviews}/>
+                    <ReviewsContainer reviews={reviews} />
                     </div>
                 </Grid>
                 </Grid>
