@@ -43,7 +43,7 @@ const ReviewsContainer = (props) => {
         <div border='right'>
             <h2 style={{color: 'white'}}>Reviews</h2>
             <List style={{backgroundColor: '#37474f'}}>
-                {props.reviews.map(review => <ListItem><ListItemText style={{color: 'white'}}><b>-"{review.content}"</b><br></br>
+                {props.reviews.map(review => <ListItem><ListItemText style={{color: 'white'}}><b>- "{review.content}"</b><br></br>
                 {editBtn}
                 {deleteBtn}
                 </ListItemText></ListItem>)}

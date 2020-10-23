@@ -32,7 +32,7 @@ export const LoggedInNav = (props) => {
     <div className={classes.root}>
       <AppBar className={classes.root} position="static">
         <Toolbar>
-          <Typography variant="h6" className={classes.title}>
+          <Typography variant="h5" className={classes.title}>
             <h5><b style={{color: 'blue'}}>Welcome</b>, {localStorage.username}</h5>
           </Typography>
          
