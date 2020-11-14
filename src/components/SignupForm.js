@@ -140,7 +140,7 @@ const handleChangeBio = (e) => {
               localStorage.bio = userInfo.user.bio
         
               
-              console.log(userInfo)
+              // console.log(userInfo)
               props.history.push("/login")
       }
       })

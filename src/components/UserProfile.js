@@ -3,7 +3,7 @@ import { Route, withRouter } from 'react-router-dom';
 import Avatar from '@material-ui/core/Avatar';
 
 const UserProfile = () => {
-    console.log(localStorage.user)
+    // console.log(localStorage.user)
     return (
         <div style={{marginLeft: '40px', marginTop: '100px', marginBottom: '50px'}}>
             <Avatar style={{width:'150px', height: '150px' }}></Avatar><b/><b/>
